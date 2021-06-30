@@ -1,0 +1,64 @@
+\hypertarget{classzero__point}{}\doxysection{zero\+\_\+point Class Reference}
+\label{classzero__point}\index{zero\_point@{zero\_point}}
+
+
+This class is used to store the maximum force on the X, Y and Z axis, as measured by the accelerometer.  
+
+
+
+
+{\ttfamily \#include $<$decorator\+\_\+zero\+\_\+point.\+h$>$}
+
+Inheritance diagram for zero\+\_\+point\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classzero__point}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classzero__point_a3aee36e1e8c3c94656adb072cfa0ff70}{zero\+\_\+point}} (\mbox{\hyperlink{classaccel__meter}{accel\+\_\+meter}} \&minion)
+\begin{DoxyCompactList}\small\item\em This constructor constructs the interface of the \mbox{\hyperlink{classzero__point}{zero\+\_\+point}} class. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxyz}{xyz}} \mbox{\hyperlink{classzero__point_adfa5ac067ee21d29477789bb7e233095}{get\+\_\+accel}} () override
+\begin{DoxyCompactList}\small\item\em returns maximum measurements \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class is used to store the maximum force on the X, Y and Z axis, as measured by the accelerometer. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classzero__point_a3aee36e1e8c3c94656adb072cfa0ff70}\label{classzero__point_a3aee36e1e8c3c94656adb072cfa0ff70}} 
+\index{zero\_point@{zero\_point}!zero\_point@{zero\_point}}
+\index{zero\_point@{zero\_point}!zero\_point@{zero\_point}}
+\doxysubsubsection{\texorpdfstring{zero\_point()}{zero\_point()}}
+{\footnotesize\ttfamily zero\+\_\+point\+::zero\+\_\+point (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classaccel__meter}{accel\+\_\+meter}} \&}]{minion }\end{DoxyParamCaption})}
+
+
+
+This constructor constructs the interface of the \mbox{\hyperlink{classzero__point}{zero\+\_\+point}} class. 
+
+This constructor can measure the maximum forces on the accelerometer axis You can hardcode these valus if you\textquotesingle{}d like in the zero\+\_\+point\+::read() funtion, and comment out the body of the constructor. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classzero__point_adfa5ac067ee21d29477789bb7e233095}\label{classzero__point_adfa5ac067ee21d29477789bb7e233095}} 
+\index{zero\_point@{zero\_point}!get\_accel@{get\_accel}}
+\index{get\_accel@{get\_accel}!zero\_point@{zero\_point}}
+\doxysubsubsection{\texorpdfstring{get\_accel()}{get\_accel()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxyz}{xyz}} zero\+\_\+point\+::get\+\_\+accel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+returns maximum measurements 
+
+This funtion returns the maximum measurements as an xyz object. If you choose to hardcode the maximum readings, you can uncomment the line \char`\"{} xyz offsets(\+X\+\_\+\+MAX, Y\+\_\+\+MAX, Z\+\_\+\+MAX); \char`\"{} and return your hardcoded values as an object of the xyz class with the \mbox{\hyperlink{classxyz}{xyz(int16\+\_\+t x, int16\+\_\+t y, int16\+\_\+t z)}} function. ~\newline
+ 
+
+Implements \mbox{\hyperlink{classaccel__meter_a329001842621c77e8d615af96a84973d}{accel\+\_\+meter}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{decorator__zero__point_8h}{decorator\+\_\+zero\+\_\+point.\+h}}\item 
+decorator\+\_\+zero\+\_\+point.\+cpp\end{DoxyCompactItemize}

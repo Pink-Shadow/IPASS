@@ -2,6 +2,7 @@
 #include "decorator_average.h"
 #include "decorator_zero_point.h"
 #include "servo.h"
+#include "math.h"
 
 int main()
 {
@@ -74,7 +75,7 @@ int main()
     
     //**********************************************************  
   
-    hwlib::cout << "Test case 2:\n\n" << "Nu gaan we de gemiddelde decorator testen. Deze zou bij elke as\neen verschil van tussen de 0 en 500 moeten hebben in zijn maximale meting en minimale meting van 30 metingen." << "\n";
+    hwlib::cout << "Test case 2:\n\n" << "Nu gaan we de gemiddelde decorator testen. Deze zou bij elke as\neen verschil van tussen de 0 en 700 moeten hebben in zijn maximale meting en minimale meting van 30 metingen." << "\n";
     hwlib::cout << "LET OP: HOUD DE SENSOR STIL.\n";
     hwlib::cout << "Druk op een toets als u de chip stabiel gepositioneerd heeft...\n\n";
     
@@ -115,7 +116,7 @@ int main()
             min_z = z[i];
         }
         
-        hwlib::cout << max_x << "\t" << max_y << "\t" << max_z << "\t\t" << min_x << "\t" << min_y << "\t" << min_z << "\n";
+//        hwlib::cout << max_x << "\t" << max_y << "\t" << max_z << "\t\t" << min_x << "\t" << min_y << "\t" << min_z << "\n";
     }
     
     int16_t verschilX = max_x - min_x;
@@ -124,7 +125,7 @@ int main()
     
     hwlib::cout << "De verschillen zijn:\n" << "X: " << verschilX << "\t" << "Y: " << verschilY << "\t" << "Z: " << verschilZ << "\n\n";
     
-    if( (0 <= verschilX && verschilX < 500) ){
+    if( (0 <= verschilX && verschilX < 700) ){
         hwlib::cout << "De decorator werkt goed op de X as\n";
     }
     else{
@@ -147,6 +148,7 @@ int main()
     hwlib::cout << "--------------Press any key to continue--------------\n";
     hwlib::cin >> c;  
     
+
     
     //**********************************************************
     
@@ -173,7 +175,7 @@ int main()
     
     //**********************************************************
     
-    hwlib::cout << "Test case 4:\n\n" << "Nu gaan we de temperatuur sensor testen. Deze zou ongeveer tussen\nde 23 en 28 graden Celcius moeten aangeven (op kamer temperatuur)" << "\n";
+    hwlib::cout << "Test case 4:\n\n" << "Nu gaan we de temperatuur sensor testen. Deze zou ongeveer tussen\nde 24 en 33 graden Celcius moeten aangeven (op kamer temperatuur)" << "\n";
     hwlib::cout << "Druk op een toets als u de chip klaar hebt om te testen...\n\n";
     
     hwlib::cin >> c;
@@ -182,7 +184,7 @@ int main()
     
     hwlib::cout << "De temperatuur is:\t" << temperature << "\n";
     
-    if(24 < temperature && temperature < 30){
+    if(24 < temperature && temperature < 33){
         hwlib::cout << "De temperatuur meting is correct!" << "\n\n";
     }
     else{
@@ -192,6 +194,24 @@ int main()
     hwlib::cout << "We zijn klaar met de chip testen!\n";
     hwlib::cout << "--------------Press any key to continue--------------\n";
     hwlib::cin >> c;
+    
+        
+    //**********************************************************
+    
+    hwlib::cout << "Test case 5:\n\n" << "Als laatst gaan we de gyroscoop testen. Dit gaat iets anders dan de rest.\nOmdat we deze niet makkelijk kunnen testen met dingen berekenen enzovoort, doen we het als volgt:\n";
+    hwlib::cout << "Je krijgt zometeen oneindig veel readings te zien van de gyroscoop, in het format: X Y Z.\nHier kun je zelf naar kijken en bepalen of het is wat je verwacht.\nJe zou positieve waardes moeten meten als je naar de ene kant kantelt, en negatieve waardes naar de andere kant.\n\n";
+    hwlib::cout << "de X is wanneer je met de chip naar boven en kabels naar je toe, de chip naar links en rechts kantelt.\nDe Y is als je op die manier naar voren kantelt en naar achter.\nEn de Z is wanneer je hem naar rechts en links laat wijzen.";
+    hwlib::cout << "Als je klaar bent kun je deze window sluiten.\n";
+    hwlib::cout << "--------------Press any key to continue--------------\n";
+    hwlib::cin >> c;
+    
+    uint8_t GYRO_CONFIG = 0x1B;
+    mpu.write(GYRO_CONFIG, 0x01);
+    for(;;){
+        xyz gyro = mpu.get_gyro();
+        hwlib::cout << "X: " << gyro.X << "  " << "Y: " << gyro.Y << "  " << "Z: " << gyro.Z << "\n";
+        hwlib::wait_ms(20);
+    }
     
     
 }

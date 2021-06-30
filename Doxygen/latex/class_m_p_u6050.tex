@@ -1,0 +1,165 @@
+\hypertarget{class_m_p_u6050}{}\doxysection{MPU6050 Class Reference}
+\label{class_m_p_u6050}\index{MPU6050@{MPU6050}}
+
+
+This class allows you to read and write to the \mbox{\hyperlink{class_m_p_u6050}{MPU6050}} chip.  
+
+
+
+
+{\ttfamily \#include $<$MPU6050.\+h$>$}
+
+Inheritance diagram for MPU6050\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_m_p_u6050}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_m_p_u6050_acc72ce4d18489156e6b4fc4d4f359a4a}{MPU6050}} (hwlib\+::i2c\+\_\+bus \&bus, uint\+\_\+fast8\+\_\+t address=0x68)
+\begin{DoxyCompactList}\small\item\em Construct the interface for the \mbox{\hyperlink{class_m_p_u6050}{MPU6050}}. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{class_m_p_u6050_a01559e4bafcfc6fb8d2941e3d7453066}{single\+\_\+reg\+\_\+read}} (uint\+\_\+fast8\+\_\+t register\+\_\+add)
+\begin{DoxyCompactList}\small\item\em return a single 8 bit data read \end{DoxyCompactList}\item 
+int16\+\_\+t \mbox{\hyperlink{class_m_p_u6050_a6b47d664ef0106e8a38fe9587c39265f}{bit16\+\_\+read}} (uint8\+\_\+t MSB, uint8\+\_\+t LSB)
+\begin{DoxyCompactList}\small\item\em return 16 bit data from 2 registers combined \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxyz}{xyz}} \mbox{\hyperlink{class_m_p_u6050_a6d97a3ba96394343f266880adc8dbd9d}{get\+\_\+accel}} () override
+\begin{DoxyCompactList}\small\item\em returns axis readings \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_m_p_u6050_ae34bf117efcc3bbc11a9de6af4388661}{get\+\_\+temperature}} () override
+\begin{DoxyCompactList}\small\item\em returns temperature \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxyz}{xyz}} \mbox{\hyperlink{class_m_p_u6050_ab39973f9126322753717e7efe9d0a59d}{get\+\_\+gyro}} () override
+\begin{DoxyCompactList}\small\item\em return gyroscope values \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_m_p_u6050_a94fd2b3b5a2e28832778c37550ffd526}{write}} (uint\+\_\+fast16\+\_\+t input, uint\+\_\+fast8\+\_\+t register\+\_\+add)
+\begin{DoxyCompactList}\small\item\em write to register \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_m_p_u6050_afe68c024098382c2f7652528665883ff}\label{class_m_p_u6050_afe68c024098382c2f7652528665883ff}} 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>int16\_t {\bfseries result}\\
+\>uint8\_t {\bfseries OUT} \mbox{[}2\mbox{]}\\
+\} \mbox{\hyperlink{class_m_p_u6050_afe68c024098382c2f7652528665883ff}{conv}}\\
+
+\end{tabbing}\begin{DoxyCompactList}\small\item\em This union is used to convert unsigned 8-\/bit integers to signed 16-\/bit integers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class allows you to read and write to the \mbox{\hyperlink{class_m_p_u6050}{MPU6050}} chip. 
+
+\mbox{\hyperlink{class_m_p_u6050}{MPU6050}} acceleration, gyroscope and temperature sensor.
+
+This is a class for the \mbox{\hyperlink{class_m_p_u6050}{MPU6050}}. The \mbox{\hyperlink{class_m_p_u6050}{MPU6050}} is a chip that can measure the gravity acceleration on the X, Y and Z axis, the temperature of the sensor, aswell as a gyroscope. The operating voltage is around 2.\+4V -\/ 3.\+5V (for the exact operating voltage, please refer to the datasheet\+: \href{https://invensense.tdk.com/wp-content/uploads/2015/02/MPU-6000-Datasheet1.pdf}{\texttt{ https\+://invensense.\+tdk.\+com/wp-\/content/uploads/2015/02/\+MPU-\/6000-\/\+Datasheet1.\+pdf}}
+
+The connections to the chip are as followed\+:
+\begin{DoxyItemize}
+\item VCC\+: 3.\+3V
+\item GND\+: ground
+\item SCL\+: GPIO pin / scl pin (on the arduino)
+\item SDA\+: GPIO pin / sda pin (on the arduino)
+\item XDA\+: used to add third party sensors like a magnetor meter
+\item XCL\+: used to add third party sensors like a magnetor meter
+\item AD0\+: is used to determine the chips I2C address. AD0 to ground\+: 0x68. AD0 to VCC\+: 0x69.
+\item INT\+: is used to trigger interrupts.
+\end{DoxyItemize}
+
+This code declares the funtions used by the \mbox{\hyperlink{class_m_p_u6050}{MPU6050}} class. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_m_p_u6050_acc72ce4d18489156e6b4fc4d4f359a4a}\label{class_m_p_u6050_acc72ce4d18489156e6b4fc4d4f359a4a}} 
+\index{MPU6050@{MPU6050}!MPU6050@{MPU6050}}
+\index{MPU6050@{MPU6050}!MPU6050@{MPU6050}}
+\doxysubsubsection{\texorpdfstring{MPU6050()}{MPU6050()}}
+{\footnotesize\ttfamily MPU6050\+::\+MPU6050 (\begin{DoxyParamCaption}\item[{hwlib\+::i2c\+\_\+bus \&}]{bus,  }\item[{uint\+\_\+fast8\+\_\+t}]{address = {\ttfamily 0x68} }\end{DoxyParamCaption})}
+
+
+
+Construct the interface for the \mbox{\hyperlink{class_m_p_u6050}{MPU6050}}. 
+
+Constructor for the \mbox{\hyperlink{class_m_p_u6050}{MPU6050}}.
+
+This constructor creates the interface of the \mbox{\hyperlink{class_m_p_u6050}{MPU6050}} with the default I2C address set to 0x68. Set the register \char`\"{}power\+\_\+management\+\_\+1\char`\"{} to 0x00 to \textquotesingle{}wake up\textquotesingle{} the chip.
+
+Also set the accelerometer sensetivity to 1. level 1 means a sensetivity of 8192 LSB/g on a full scale range of +-\/ 4g. You can change this if you\textquotesingle{}d like.
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_m_p_u6050_a6b47d664ef0106e8a38fe9587c39265f}\label{class_m_p_u6050_a6b47d664ef0106e8a38fe9587c39265f}} 
+\index{MPU6050@{MPU6050}!bit16\_read@{bit16\_read}}
+\index{bit16\_read@{bit16\_read}!MPU6050@{MPU6050}}
+\doxysubsubsection{\texorpdfstring{bit16\_read()}{bit16\_read()}}
+{\footnotesize\ttfamily int16\+\_\+t MPU6050\+::bit16\+\_\+read (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{MSB,  }\item[{uint8\+\_\+t}]{LSB }\end{DoxyParamCaption})}
+
+
+
+return 16 bit data from 2 registers combined 
+
+This funtion returns a 16 bit integer value of the given High and Low data registers. It uses the conv union to convert the two 8-\/bit registers to a 16-\/bit value. \mbox{\Hypertarget{class_m_p_u6050_a6d97a3ba96394343f266880adc8dbd9d}\label{class_m_p_u6050_a6d97a3ba96394343f266880adc8dbd9d}} 
+\index{MPU6050@{MPU6050}!get\_accel@{get\_accel}}
+\index{get\_accel@{get\_accel}!MPU6050@{MPU6050}}
+\doxysubsubsection{\texorpdfstring{get\_accel()}{get\_accel()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxyz}{xyz}} MPU6050\+::get\+\_\+accel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+returns axis readings 
+
+This funtion returns the 3 axis accelerometer readings as an xyz object. 
+
+Implements \mbox{\hyperlink{classaccel__meter_a329001842621c77e8d615af96a84973d}{accel\+\_\+meter}}.
+
+\mbox{\Hypertarget{class_m_p_u6050_ab39973f9126322753717e7efe9d0a59d}\label{class_m_p_u6050_ab39973f9126322753717e7efe9d0a59d}} 
+\index{MPU6050@{MPU6050}!get\_gyro@{get\_gyro}}
+\index{get\_gyro@{get\_gyro}!MPU6050@{MPU6050}}
+\doxysubsubsection{\texorpdfstring{get\_gyro()}{get\_gyro()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxyz}{xyz}} MPU6050\+::get\+\_\+gyro (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+return gyroscope values 
+
+This funtion returns the 3 axis gyroscope readings as an xyz object. 
+
+Implements \mbox{\hyperlink{classgyro__meter_aa41a3ce7c7270bdddffc8a82b32efb71}{gyro\+\_\+meter}}.
+
+\mbox{\Hypertarget{class_m_p_u6050_ae34bf117efcc3bbc11a9de6af4388661}\label{class_m_p_u6050_ae34bf117efcc3bbc11a9de6af4388661}} 
+\index{MPU6050@{MPU6050}!get\_temperature@{get\_temperature}}
+\index{get\_temperature@{get\_temperature}!MPU6050@{MPU6050}}
+\doxysubsubsection{\texorpdfstring{get\_temperature()}{get\_temperature()}}
+{\footnotesize\ttfamily int MPU6050\+::get\+\_\+temperature (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+returns temperature 
+
+this funtion returns an integer value of degrees in Celcius, measured by the sensor. 
+
+Implements \mbox{\hyperlink{classtemp__meter_a6cf6180cc48e55de0c59aa2d6fb0e66c}{temp\+\_\+meter}}.
+
+\mbox{\Hypertarget{class_m_p_u6050_a01559e4bafcfc6fb8d2941e3d7453066}\label{class_m_p_u6050_a01559e4bafcfc6fb8d2941e3d7453066}} 
+\index{MPU6050@{MPU6050}!single\_reg\_read@{single\_reg\_read}}
+\index{single\_reg\_read@{single\_reg\_read}!MPU6050@{MPU6050}}
+\doxysubsubsection{\texorpdfstring{single\_reg\_read()}{single\_reg\_read()}}
+{\footnotesize\ttfamily uint8\+\_\+t MPU6050\+::single\+\_\+reg\+\_\+read (\begin{DoxyParamCaption}\item[{uint\+\_\+fast8\+\_\+t}]{register\+\_\+add }\end{DoxyParamCaption})}
+
+
+
+return a single 8 bit data read 
+
+This funtion returns a single byte of data out of the given register. \mbox{\Hypertarget{class_m_p_u6050_a94fd2b3b5a2e28832778c37550ffd526}\label{class_m_p_u6050_a94fd2b3b5a2e28832778c37550ffd526}} 
+\index{MPU6050@{MPU6050}!write@{write}}
+\index{write@{write}!MPU6050@{MPU6050}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily void MPU6050\+::write (\begin{DoxyParamCaption}\item[{uint\+\_\+fast16\+\_\+t}]{input,  }\item[{uint\+\_\+fast8\+\_\+t}]{register\+\_\+add }\end{DoxyParamCaption})}
+
+
+
+write to register 
+
+This funtion allows you to write data into a given register. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_m_p_u6050_8h}{MPU6050.\+h}}\item 
+MPU6050.\+cpp\end{DoxyCompactItemize}

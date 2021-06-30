@@ -1,0 +1,64 @@
+\hypertarget{classdeco__average}{}\doxysection{deco\+\_\+average Class Reference}
+\label{classdeco__average}\index{deco\_average@{deco\_average}}
+
+
+This decorator allows you to read out a more stable output of the accelmeter values.  
+
+
+
+
+{\ttfamily \#include $<$decorator\+\_\+average.\+h$>$}
+
+Inheritance diagram for deco\+\_\+average\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classdeco__average}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdeco__average_af31561f2b6cb333682307da1273b1685}{deco\+\_\+average}} (\mbox{\hyperlink{classaccel__meter}{accel\+\_\+meter}} \&minion)
+\begin{DoxyCompactList}\small\item\em This constructor constructs the interface of the \mbox{\hyperlink{classdeco__average}{deco\+\_\+average}} class. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classxyz}{xyz}} \mbox{\hyperlink{classdeco__average_a15ffb2c526c75fdf132e330dfc8744a7}{get\+\_\+accel}} () override
+\begin{DoxyCompactList}\small\item\em returns average \mbox{\hyperlink{classaccel__meter}{accel\+\_\+meter}} readings. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This decorator allows you to read out a more stable output of the accelmeter values. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classdeco__average_af31561f2b6cb333682307da1273b1685}\label{classdeco__average_af31561f2b6cb333682307da1273b1685}} 
+\index{deco\_average@{deco\_average}!deco\_average@{deco\_average}}
+\index{deco\_average@{deco\_average}!deco\_average@{deco\_average}}
+\doxysubsubsection{\texorpdfstring{deco\_average()}{deco\_average()}}
+{\footnotesize\ttfamily deco\+\_\+average\+::deco\+\_\+average (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classaccel__meter}{accel\+\_\+meter}} \&}]{minion }\end{DoxyParamCaption})}
+
+
+
+This constructor constructs the interface of the \mbox{\hyperlink{classdeco__average}{deco\+\_\+average}} class. 
+
+When constructing, it fills 3 arrays of 30 elemts with readings from the chip and calculates the total value. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classdeco__average_a15ffb2c526c75fdf132e330dfc8744a7}\label{classdeco__average_a15ffb2c526c75fdf132e330dfc8744a7}} 
+\index{deco\_average@{deco\_average}!get\_accel@{get\_accel}}
+\index{get\_accel@{get\_accel}!deco\_average@{deco\_average}}
+\doxysubsubsection{\texorpdfstring{get\_accel()}{get\_accel()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classxyz}{xyz}} deco\+\_\+average\+::get\+\_\+accel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+returns average \mbox{\hyperlink{classaccel__meter}{accel\+\_\+meter}} readings. 
+
+This funtion returns the 3 axis \mbox{\hyperlink{classaccel__meter}{accel\+\_\+meter}} measurements, as a moving average, stored in an xyz object. ~\newline
+ 
+
+Implements \mbox{\hyperlink{classaccel__meter_a329001842621c77e8d615af96a84973d}{accel\+\_\+meter}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{decorator__average_8h}{decorator\+\_\+average.\+h}}\item 
+decorator\+\_\+average.\+cpp\end{DoxyCompactItemize}
