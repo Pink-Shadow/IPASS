@@ -40,8 +40,6 @@ int main(){
         int delay_y = serv_Y.calculate_pulse(accel.Y, offsets.Y);
         int delay_x = serv_X.calculate_pulse(accel.X, offsets.X);
         
-        hwlib::cout << delay_x << "\t" << delay_y << "\t" << accel.X << "\t" << accel.Y << "\n";
-
         serv_Y.write_pulse(delay_y);
         serv_X.write_pulse(delay_x);
     
