@@ -1,5 +1,5 @@
-# IPASS
-This repository is used for IPASS.
+# Automatic stabalizer
+Made by Jasper van der Post as a student of Computer Science at the Hogeschool Utrecht (HU).
 
 # How to install
 To use this application, you will need [HWLIB](https://github.com/wovo/hwlib).\
