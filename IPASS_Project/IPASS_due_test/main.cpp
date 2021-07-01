@@ -2,7 +2,6 @@
 #include "decorator_average.h"
 #include "decorator_zero_point.h"
 #include "servo.h"
-#include "math.h"
 
 int main()
 {
